@@ -1,0 +1,46 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import CardDescription from "./CardDescription";
+
+<Meta
+  title="Atoms/CardDescription"
+  component={CardDescription}
+  argTypes={{
+    desc: {
+      description: "Short text describing content of card",
+      table: {
+        type: {
+          summary: "string",
+          detail: "Keep it short",
+        },
+        defaultValue: {
+          summary: "Lista de regalos para el grupo crew 🎉",
+        },
+      },
+    },
+  }}
+/>
+
+# CardDescription
+
+## Component representing the description of a card
+
+`CardDescription` is used when creating the description of a card, **you don't need to use this component directly**, as a description is passed by props to a `Card`component.
+
+`desc` should always be present when using `CardDescription`.
+
+export const Template = (args) => <CardDescription {...args} />;
+
+### Preview
+
+<Canvas>
+  <Story
+    name="standard"
+    args={{
+      desc: "Lista de regalos para el grupo crew 🎉",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="standard" />

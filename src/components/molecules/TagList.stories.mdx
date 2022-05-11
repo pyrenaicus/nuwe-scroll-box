@@ -1,0 +1,50 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import TagList from "./TagList";
+
+<Meta
+  title="Molecules/TagList"
+  component={TagList}
+  argTypes={{
+    title: {
+      description: "A list of tags",
+      table: {
+        type: {
+          summary: "Object",
+          detail: "an object with key tags and value an array of objects",
+        },
+        defaultValue: {
+          summary: "Meee",
+        },
+      },
+    },
+  }}
+/>
+
+# TagList component
+
+## A component representing a list of tags
+
+`TagList` is used when creating a group of tags, **you don't need to use this component directly**, as tags are passed by props to a `Card`component.
+
+An array of tags with shape `[{ title: string }, { title: string }, ...]` should always be present when using `TagList`.
+
+export const Template = (args) => <TagList {...args} />;
+
+### Preview
+
+<Canvas>
+  <Story
+    name="standard"
+    args={{
+      tags: [
+        { title: "Extreme Sport" },
+        { title: "Books" },
+        { title: "Family" },
+      ],
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="standard" />

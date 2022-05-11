@@ -1,0 +1,106 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import ScrollBox from "./ScrollBox";
+
+<Meta title="Organisms/ScrollBox" component={ScrollBox} />
+
+# ScrollBox
+
+## a component representing a group of cards
+
+`ScrollBox` is used when creating a list of cards, each one representing a group of gifts. **This is the component you will use**.
+
+### Props passed to component
+
+1. `cards` an array containing gift cards, with shape:
+
+```javascript
+[{
+  title: string,
+  desc: string,
+  tags: [ { title: string}, { title: string}, ...],
+  }]
+```
+
+2. `loading` a boolean representing loading state of component.
+
+`ScrollBox`component can be in three different states:
+
+export const Template = (args) => <ScrollBox {...args} />;
+
+### Standard state
+
+This is the default state when gift cards exist.
+
+<Canvas>
+  <Story
+    name="standard"
+    args={{
+      loading: false,
+      scrollBoxTitle: "My custom horizontal scroll box",
+      cards: [
+        {
+          title: "Crew 🎉",
+          desc: "Lista de regalos para el grupo crew 🎉",
+          tags: [{ title: "Deportes de riesgo" }, { title: "Libros" }],
+        },
+        {
+          title: "Family 🎉",
+          desc: "Lista de regalos para el grupo crew 🎉",
+          tags: [{ title: "Family" }, { title: "Sport" }],
+        },
+        {
+          title: "Other 🎉",
+          desc: "Lista de regalos para el grupo crew 🎉",
+          tags: [{ title: "Experience" }, { title: "Libros" }],
+        },
+        {
+          title: "Crew 🎉",
+          desc: "Lista de regalos para el grupo crew 🎉",
+          tags: [{ title: "Deportes de riesgo" }, { title: "Libros" }],
+        },
+        {
+          title: "Family 🎉",
+          desc: "Lista de regalos para el grupo crew 🎉",
+          tags: [{ title: "Family" }, { title: "Sport" }],
+        },
+      ],
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="standard" />
+
+### Loading state
+
+Showing a skeleton while cards are loading from an external API.
+
+<Canvas>
+  <Story
+    name="loading"
+    args={{
+      loading: true,
+      scrollBoxTitle: "loading gifts...",
+      cards: [],
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Empty state
+
+Showing when something went wrong and there are no gift cards.
+
+<Canvas>
+  <Story
+    name="empty"
+    args={{
+      loading: false,
+      cards: [],
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

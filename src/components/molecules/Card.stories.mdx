@@ -1,0 +1,77 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import Card from "./Card";
+
+<Meta
+  title="Molecules/Card"
+  component={Card}
+  argTypes={{
+    title: {
+      description: "Short text as title of card component",
+      table: {
+        type: {
+          summary: "String",
+          detail: "Keep it short",
+        },
+        defaultValue: {
+          summary: "Crew 🎉",
+        },
+      },
+    },
+    desc: {
+      description: "Short text describing content of card",
+      table: {
+        type: {
+          summary: "String",
+          detail: "Keep it short",
+        },
+        defaultValue: {
+          summary: "Lista de regalos para el grupo crew 🎉",
+        },
+      },
+    },
+    tags: {
+      description: "an object with key: tags and value an array of tags",
+      table: {
+        type: {
+          summary: "An array of tags",
+          detail: "An array of tags",
+        },
+      },
+    },
+  }}
+/>
+
+# Card
+
+## A component representing a single card
+
+`Card` is used when creating a single card, to show a group of gifts, **you don't need to use this component directly**, as cards are passed by props to a `ScrollBox`component.
+
+`tags`, an array of tags with shape `[{ title: string }, { title: string }, ...]` should always be present when using `Card`.
+
+`title`, a string, should always be present when using `Card`.
+
+`desc`, a string, should always be present when using `Card`.
+
+export const Template = (args) => <Card {...args} />;
+
+### Preview
+
+<Canvas>
+  <Story
+    name="standard"
+    args={{
+      title: "Crew 🎉",
+      desc: "Lista de regalos para el grupo crew 🎉",
+      tags: [
+        { title: "Deportes de riesgo" },
+        { title: "Libros" },
+        // { title: "Deporte" },
+      ],
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="standard" />

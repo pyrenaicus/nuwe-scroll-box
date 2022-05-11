@@ -1,0 +1,46 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import CardTitle from "./CardTitle";
+
+<Meta
+  title="Atoms/CardTitle"
+  component={CardTitle}
+  argTypes={{
+    title: {
+      description: "Short text as title of card component",
+      table: {
+        type: {
+          summary: "string",
+          detail: "Keep it short",
+        },
+        defaultValue: {
+          summary: "Crew 🎉",
+        },
+      },
+    },
+  }}
+/>
+
+# CardTitle
+
+## Component representing the title of a card
+
+`CardTitle` is used when creating the title of a card, **you don't need to use this component directly**, as a title is passed by props to a `Card`component.
+
+`title` should always be present when using `CardTitle`.
+
+export const Template = (args) => <CardTitle {...args} />;
+
+### Preview
+
+<Canvas>
+  <Story
+    name="standard"
+    args={{
+      title: "crew 🎉",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="standard" />

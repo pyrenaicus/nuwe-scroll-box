@@ -1,0 +1,63 @@
+import {
+  ArgsTable,
+  Canvas,
+  Meta,
+  Story,
+  ColorPalette,
+  ColorItem,
+} from "@storybook/addon-docs";
+import TagPill from "./TagPill";
+
+<Meta
+  title="Atoms/TagPill"
+  component={TagPill}
+  argTypes={{
+    title: {
+      description: "Short text describing a tag",
+      table: {
+        type: {
+          summary: "string",
+          detail: "Keep it short, ideally a single word",
+        },
+        defaultValue: {
+          summary: "Books",
+        },
+      },
+    },
+  }}
+/>
+
+# TagPill
+
+## Component representing a single tag used to label a card
+
+`TagPill` is used when creating a tag, **you don't need to use this component directly**, as tags are passed by props to a `Card`component.
+
+`title` should always be present when using `TagPill`.
+
+### Background color
+
+<ColorPalette>
+  <ColorItem
+    title="Green"
+    subtitle="Shade 3 from Reasonable Colors"
+    colors={{ green: "#008217" }}
+  />
+</ColorPalette>
+
+export const Template = (args) => <TagPill {...args} />;
+
+### Preview
+
+<Canvas>
+  <Story
+    name="standard"
+    args={{
+      title: "Sports",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="standard" />

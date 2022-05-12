@@ -13,7 +13,6 @@ import TagPill from "./TagPill";
   component={TagPill}
   argTypes={{
     title: {
-      description: "Short text describing a tag",
       table: {
         type: {
           summary: "string",
@@ -59,5 +58,7 @@ export const Template = (args) => <TagPill {...args} />;
     {Template.bind({})}
   </Story>
 </Canvas>
+
+### Arguments of the component
 
 <ArgsTable story="TagPill" />

@@ -2,7 +2,7 @@ import React from "react";
 import TagPill, { Tag } from "../atoms/TagPill";
 
 export type TagListProps = {
-  /** A list of tags */
+  /** An array representing a list of tags */
   tags: Tag[];
 };
 

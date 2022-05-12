@@ -6,14 +6,10 @@ import CardDescription from "./CardDescription";
   component={CardDescription}
   argTypes={{
     desc: {
-      description: "Short text describing content of card",
       table: {
         type: {
           summary: "string",
           detail: "Keep it short",
-        },
-        defaultValue: {
-          summary: "Lista de regalos para el grupo crew 🎉",
         },
       },
     },
@@ -42,5 +38,7 @@ export const Template = (args) => <CardDescription {...args} />;
     {Template.bind({})}
   </Story>
 </Canvas>
+
+### Arguments of the component
 
 <ArgsTable story="CardDescription" />

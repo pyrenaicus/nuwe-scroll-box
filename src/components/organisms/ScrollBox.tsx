@@ -1,10 +1,14 @@
 import React from "react";
 import Card, { CardType } from "../molecules/Card";
+/** just a cute image to show when component is empty */
 import sadXiao from "../../images/sad-xiao-log-bao.gif";
 
 export type ScrollBoxProps = {
+  /** Title of the scroll box */
   scrollBoxTitle: string;
+  /** Boolean representing loading state of component */
   loading: boolean;
+  /** An array of gift cards */
   cards: CardType[];
 };
 
@@ -58,6 +62,7 @@ export default function ScrollBox(props: ScrollBoxProps) {
             desc={card.desc}
             tags={card.tags}
             key={index}
+            handleClick={card.handleClick}
           />
         ))}
       </div>

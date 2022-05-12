@@ -5,7 +5,7 @@ import React from "react";
 - A tag name should always be present when using TagPill.
 **/
 export type Tag = {
-  /** Text used as tags's title */
+  /** Short text used as tags's title */
   title: string;
 };
 export default function TagPill(props: Tag) {

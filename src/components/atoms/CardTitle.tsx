@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  /** Text used as card's title */
+  /** Short text used as card's title */
   title: string;
 };
 

@@ -6,7 +6,6 @@ import CardTitle from "./CardTitle";
   component={CardTitle}
   argTypes={{
     title: {
-      description: "Short text as title of card component",
       table: {
         type: {
           summary: "string",
@@ -42,5 +41,7 @@ export const Template = (args) => <CardTitle {...args} />;
     {Template.bind({})}
   </Story>
 </Canvas>
+
+### Arguments of the component
 
 <ArgsTable story="CardTitle" />

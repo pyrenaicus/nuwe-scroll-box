@@ -6,35 +6,34 @@ import Card from "./Card";
   component={Card}
   argTypes={{
     title: {
-      description: "Short text as title of card component",
       table: {
         type: {
           summary: "String",
           detail: "Keep it short",
-        },
-        defaultValue: {
-          summary: "Crew 🎉",
         },
       },
     },
     desc: {
-      description: "Short text describing content of card",
       table: {
         type: {
           summary: "String",
           detail: "Keep it short",
         },
-        defaultValue: {
-          summary: "Lista de regalos para el grupo crew 🎉",
-        },
       },
     },
     tags: {
-      description: "an object with key: tags and value an array of tags",
       table: {
         type: {
-          summary: "An array of tags",
-          detail: "An array of tags",
+          summary: "Tag[]",
+          detail: "[{ title: string }, { title: string }, ...]",
+        },
+      },
+    },
+    handleClick: {
+      table: {
+        type: {
+          summary: "() => void",
+          detail: "in our example: () => { console.log('clicked!')}",
         },
       },
     },
@@ -68,10 +67,15 @@ export const Template = (args) => <Card {...args} />;
         { title: "Libros" },
         // { title: "Deporte" },
       ],
+      handleClick: () => {
+        console.log("clicked!");
+      },
     }}
   >
     {Template.bind({})}
   </Story>
 </Canvas>
+
+### Arguments of the component
 
 <ArgsTable story="Card" />

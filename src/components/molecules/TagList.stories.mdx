@@ -5,15 +5,11 @@ import TagList from "./TagList";
   title="Design System/Molecules/TagList"
   component={TagList}
   argTypes={{
-    title: {
-      description: "A list of tags",
+    tags: {
       table: {
         type: {
-          summary: "Object",
-          detail: "an object with key tags and value an array of objects",
-        },
-        defaultValue: {
-          summary: "Meee",
+          summary: "Tag[]",
+          detail: "[{ title: string }, { title: string }, ...]",
         },
       },
     },
@@ -46,5 +42,7 @@ export const Template = (args) => <TagList {...args} />;
     {Template.bind({})}
   </Story>
 </Canvas>
+
+### Arguments of the component
 
 <ArgsTable story="TagList" />

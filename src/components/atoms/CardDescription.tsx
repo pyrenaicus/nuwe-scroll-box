@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  /** Text used as card's description */
+  /** Short text used as card's description */
   desc: string;
 };
 export default function CardDescription(props: Props) {

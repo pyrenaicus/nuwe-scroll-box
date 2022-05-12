@@ -10,17 +10,19 @@ import CardTitle from "../atoms/CardTitle";
 **/
 
 export type CardType = {
+  /** short text used as title */
   title: string;
+  /** Short text describing content of card */
   desc: string;
+  /** An array representing a list of tags */
   tags: Tag[];
+  /** an action fired when Card is clicked */
+  handleClick: () => void;
 };
 
 export default function Card(props: CardType) {
-  const { title, desc, tags } = props;
+  const { title, desc, tags, handleClick } = props;
 
-  const handleClick = () => {
-    console.log("clicked!");
-  };
   return (
     <div className="card" onClick={handleClick}>
       <CardTitle title={title} />

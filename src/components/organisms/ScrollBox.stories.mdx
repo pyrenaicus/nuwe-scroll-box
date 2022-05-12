@@ -1,7 +1,21 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import ScrollBox from "./ScrollBox";
 
-<Meta title="Design System/Organisms/ScrollBox" component={ScrollBox} />
+<Meta
+  title="Design System/Organisms/ScrollBox"
+  component={ScrollBox}
+  argTypes={{
+    cards: {
+      table: {
+        type: {
+          summary: "CardType[]",
+          detail:
+            "[{\n  title: string,\n  desc: string,\n  tags: [{title: string}, {title: string}, ...]\n}]",
+        },
+      },
+    },
+  }}
+/>
 
 # ScrollBox
 
@@ -27,7 +41,7 @@ import ScrollBox from "./ScrollBox";
 
 export const Template = (args) => <ScrollBox {...args} />;
 
-### Standard state
+## Default state
 
 This is the default state when gift cards exist.
 
@@ -42,26 +56,41 @@ This is the default state when gift cards exist.
           title: "Crew 🎉",
           desc: "Lista de regalos para el grupo crew 🎉",
           tags: [{ title: "Deportes de riesgo" }, { title: "Libros" }],
+          handleClick: () => {
+            console.log("clicked!");
+          },
         },
         {
           title: "Family 🎉",
           desc: "Lista de regalos para el grupo crew 🎉",
           tags: [{ title: "Family" }, { title: "Sport" }],
+          handleClick: () => {
+            console.log("clicked!");
+          },
         },
         {
           title: "Other 🎉",
           desc: "Lista de regalos para el grupo crew 🎉",
           tags: [{ title: "Experience" }, { title: "Libros" }],
+          handleClick: () => {
+            console.log("clicked!");
+          },
         },
         {
           title: "Crew 🎉",
           desc: "Lista de regalos para el grupo crew 🎉",
           tags: [{ title: "Deportes de riesgo" }, { title: "Libros" }],
+          handleClick: () => {
+            console.log("clicked!");
+          },
         },
         {
           title: "Family 🎉",
           desc: "Lista de regalos para el grupo crew 🎉",
           tags: [{ title: "Family" }, { title: "Sport" }],
+          handleClick: () => {
+            console.log("clicked!");
+          },
         },
       ],
     }}
@@ -70,9 +99,11 @@ This is the default state when gift cards exist.
   </Story>
 </Canvas>
 
+### Arguments of the component
+
 <ArgsTable story="default" />
 
-### Loading state
+## Loading state
 
 Showing a skeleton while cards are loading from an external API.
 
@@ -89,7 +120,7 @@ Showing a skeleton while cards are loading from an external API.
   </Story>
 </Canvas>
 
-### Empty state
+## Empty state
 
 Showing when something went wrong and there are no gift cards.
 

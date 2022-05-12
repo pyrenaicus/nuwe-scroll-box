@@ -2,7 +2,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import CardTitle from "./CardTitle";
 
 <Meta
-  title="Atoms/CardTitle"
+  title="Design System/Atoms/CardTitle"
   component={CardTitle}
   argTypes={{
     title: {
@@ -34,7 +34,7 @@ export const Template = (args) => <CardTitle {...args} />;
 
 <Canvas>
   <Story
-    name="standard"
+    name="CardTitle"
     args={{
       title: "crew 🎉",
     }}
@@ -43,4 +43,4 @@ export const Template = (args) => <CardTitle {...args} />;
   </Story>
 </Canvas>
 
-<ArgsTable story="standard" />
+<ArgsTable story="CardTitle" />

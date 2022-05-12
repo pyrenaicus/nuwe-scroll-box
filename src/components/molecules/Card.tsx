@@ -1,14 +1,23 @@
 import React from "react";
 import TagList from "./TagList";
+import { Tag } from "../atoms/TagPill";
 import CardDescription from "../atoms/CardDescription";
 import CardTitle from "../atoms/CardTitle";
-import PropTypes from "prop-types";
 
 /**
   - A card component
   - Composition of CardTitle, CardDescription and TagList
 **/
-export default function Card({ title, desc, tags }) {
+
+export type CardType = {
+  title: string;
+  desc: string;
+  tags: Tag[];
+};
+
+export default function Card(props: CardType) {
+  const { title, desc, tags } = props;
+
   const handleClick = () => {
     console.log("clicked!");
   };
@@ -20,16 +29,3 @@ export default function Card({ title, desc, tags }) {
     </div>
   );
 }
-
-Card.propTypes = {
-  /** Tag's title */
-  title: PropTypes.string.isRequired,
-  /** Card's description */
-  desc: PropTypes.string.isRequired,
-  /** An array of tags with shape { title: String } */
-  tags: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-    })
-  ).isRequired,
-};

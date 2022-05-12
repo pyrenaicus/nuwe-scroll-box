@@ -2,7 +2,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Card from "./Card";
 
 <Meta
-  title="Molecules/Card"
+  title="Design System/Molecules/Card"
   component={Card}
   argTypes={{
     title: {
@@ -59,7 +59,7 @@ export const Template = (args) => <Card {...args} />;
 
 <Canvas>
   <Story
-    name="standard"
+    name="Card"
     args={{
       title: "Crew 🎉",
       desc: "Lista de regalos para el grupo crew 🎉",
@@ -74,4 +74,4 @@ export const Template = (args) => <Card {...args} />;
   </Story>
 </Canvas>
 
-<ArgsTable story="standard" />
+<ArgsTable story="Card" />

@@ -1,12 +1,19 @@
 import React from "react";
-import Card from "../molecules/Card";
-import PropTypes from "prop-types";
+import Card, { CardType } from "../molecules/Card";
 import sadXiao from "../../images/sad-xiao-log-bao.gif";
+
+export type ScrollBoxProps = {
+  scrollBoxTitle: string;
+  loading: boolean;
+  cards: CardType[];
+};
 
 /**
   - Component representing a group of cards
 **/
-export default function ScrollBox({ scrollBoxTitle, cards, loading }) {
+export default function ScrollBox(props: ScrollBoxProps) {
+  const { scrollBoxTitle, loading, cards } = props;
+
   const CardLoading = (
     <div className="card is-loading">
       <div className="card-title"></div>
@@ -44,7 +51,7 @@ export default function ScrollBox({ scrollBoxTitle, cards, loading }) {
     <div className="scroll-box-container">
       <h2 className="scroll-box-title">{scrollBoxTitle}</h2>
       {/* tabindex fixes a11y issue: scrollable region must have keyboard access */}
-      <div class="scroll-box" tabindex="0">
+      <div className="scroll-box" tabIndex={0}>
         {cards.map((card, index) => (
           <Card
             title={card.title}
@@ -57,21 +64,3 @@ export default function ScrollBox({ scrollBoxTitle, cards, loading }) {
     </div>
   );
 }
-
-ScrollBox.propTypes = {
-  loading: PropTypes.bool,
-  cards: PropTypes.arrayOf(
-    PropTypes.shape({
-      /** Tag's title */
-      title: PropTypes.string.isRequired,
-      /** Card's description */
-      desc: PropTypes.string.isRequired,
-      /** An array of tags with shape { title: String } */
-      tags: PropTypes.arrayOf(
-        PropTypes.shape({
-          title: PropTypes.string,
-        })
-      ).isRequired,
-    })
-  ).isRequired,
-};

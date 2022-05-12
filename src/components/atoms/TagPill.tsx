@@ -1,15 +1,15 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 /**
   - Use a TagPill for attributing tags to a Card component.
 - A tag name should always be present when using TagPill.
 **/
-export default function TagPill({ title }) {
+export type Tag = {
+  /** Text used as tags's title */
+  title: string;
+};
+export default function TagPill(props: Tag) {
+  const { title } = props;
+
   return <div className="card-tag">{title}</div>;
 }
-
-TagPill.propTypes = {
-  /** Tag's title */
-  title: PropTypes.string.isRequired,
-};

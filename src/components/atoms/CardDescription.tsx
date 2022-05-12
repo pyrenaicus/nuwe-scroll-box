@@ -1,14 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-/**
-  - Text used as card's description
-**/
-export default function CardDescription({ desc }) {
+type Props = {
+  /** Text used as card's description */
+  desc: string;
+};
+export default function CardDescription(props: Props) {
+  const { desc } = props;
   return <div className="card-description">{desc}</div>;
 }
-
-CardDescription.propTypes = {
-  /** Card's description */
-  desc: PropTypes.string.isRequired,
-};

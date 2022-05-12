@@ -2,7 +2,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import TagList from "./TagList";
 
 <Meta
-  title="Molecules/TagList"
+  title="Design System/Molecules/TagList"
   component={TagList}
   argTypes={{
     title: {
@@ -34,7 +34,7 @@ export const Template = (args) => <TagList {...args} />;
 
 <Canvas>
   <Story
-    name="standard"
+    name="TagList"
     args={{
       tags: [
         { title: "Extreme Sport" },
@@ -47,4 +47,4 @@ export const Template = (args) => <TagList {...args} />;
   </Story>
 </Canvas>
 
-<ArgsTable story="standard" />
+<ArgsTable story="TagList" />

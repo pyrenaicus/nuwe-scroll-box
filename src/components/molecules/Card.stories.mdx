@@ -1,4 +1,11 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import {
+  ArgsTable,
+  Canvas,
+  Meta,
+  Story,
+  ColorPalette,
+  ColorItem,
+} from "@storybook/addon-docs";
 import Card from "./Card";
 
 <Meta
@@ -46,13 +53,32 @@ import Card from "./Card";
 
 `Card` is used when creating a single card, to show a group of gifts, **you don't need to use this component directly**, as cards are passed by props to a `ScrollBox`component.
 
-`tags`, an array of tags with shape `[{ title: string }, { title: string }, ...]` should always be present when using `Card`.
+### Required props
 
-`title`, a string, should always be present when using `Card`.
+- `tags`, an array of tags with shape `[{ title: string }, { title: string }, ...]` should always be present when using `Card`.
 
-`desc`, a string, should always be present when using `Card`.
+- `title`, a string, should always be present when using `Card`.
+
+- `desc`, a string, should always be present when using `Card`.
 
 export const Template = (args) => <Card {...args} />;
+
+## Colors
+
+Using colors from [Reasonable Colors](https://reasonable.work/colors/) color system.
+
+<ColorPalette>
+  <ColorItem
+    title="Tag pill background color"
+    subtitle="Green shade 4 from Reasonable Colors"
+    colors={{ "--color-green-4": "#008217" }}
+  />
+  <ColorItem
+    title="Card on hover color"
+    subtitle="Violet shade 2 from Reasonable Colors"
+    colors={{ "--color-violet-2": "#E8DAFF" }}
+  />
+</ColorPalette>
 
 ### Preview
 
@@ -65,6 +91,8 @@ export const Template = (args) => <Card {...args} />;
       tags: [
         { title: "Deportes de riesgo" },
         { title: "Libros" },
+        { title: "Libros" },
+        { title: "Deportes de riesgo" },
         // { title: "Deporte" },
       ],
       handleClick: () => {
@@ -76,6 +104,34 @@ export const Template = (args) => <Card {...args} />;
   </Story>
 </Canvas>
 
-### Arguments of the component
+### Arguments of a Card component
 
 <ArgsTable story="Card" />
+
+## Testing a card with a long title and longer description
+
+<Canvas>
+  <Story
+    name="Long text card"
+    args={{
+      title: "This is an extremely long title for a card",
+      desc: "What an awesome big pack of gifts, just for your interest, let's show a detailed list of each one of them: We have amazing packs of extreme sports in the Pyrenees, and amazing restaurants to go for dinner, bla bla bla",
+      tags: [
+        { title: "Extreme SPORTS are cool" },
+        { title: "Books" },
+        { title: "Movies" },
+        { title: "More extreme sports" },
+        { title: "Restaurants" },
+      ],
+      handleClick: () => {
+        console.log("clicked!");
+      },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Arguments of an awkward Card component
+
+<ArgsTable story="Long text card" />

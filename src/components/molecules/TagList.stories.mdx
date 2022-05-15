@@ -24,6 +24,8 @@ import TagList from "./TagList";
 
 An array of tags with shape `[{ title: string }, { title: string }, ...]` should always be present when using `TagList`.
 
+`TagList` is limited to show as mucho as a 3 tags, if a card has more than three tags, only the first three will be shown.
+
 export const Template = (args) => <TagList {...args} />;
 
 ### Preview
@@ -36,6 +38,7 @@ export const Template = (args) => <TagList {...args} />;
         { title: "Extreme Sport" },
         { title: "Books" },
         { title: "Family" },
+        { title: "Restaurant" },
       ],
     }}
   >

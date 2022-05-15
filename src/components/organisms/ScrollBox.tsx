@@ -8,8 +8,8 @@ export type ScrollBoxProps = {
   scrollBoxTitle: string;
   /** Boolean representing loading state of component */
   loading: boolean;
-  /** An array of gift cards */
-  cards: CardType[];
+  /** An array of cards plus id */
+  cards: (CardType & { id: string })[];
 };
 
 /**
@@ -18,6 +18,7 @@ export type ScrollBoxProps = {
 export default function ScrollBox(props: ScrollBoxProps) {
   const { scrollBoxTitle, loading, cards } = props;
 
+  /** skeleton card to use in loading state */
   const CardLoading = (
     <div className="card is-loading">
       <div className="card-title"></div>
@@ -28,6 +29,8 @@ export default function ScrollBox(props: ScrollBoxProps) {
       </div>
     </div>
   );
+
+  /** loading state */
   if (loading) {
     return (
       <div className="scroll-box-container">
@@ -42,26 +45,27 @@ export default function ScrollBox(props: ScrollBoxProps) {
     );
   }
 
+  /** empty state */
   if (!loading && cards.length === 0) {
     return (
       <div className="scroll-box is-empty">
+        <h2 className="scroll-box-title">{scrollBoxTitle}</h2>
         <img src={sadXiao} alt="sad xiao" />
-        <h3>No gifts found!</h3>
       </div>
     );
   }
-
+  /** default state */
   return (
     <div className="scroll-box-container">
       <h2 className="scroll-box-title">{scrollBoxTitle}</h2>
       {/* tabindex fixes a11y issue: scrollable region must have keyboard access */}
       <div className="scroll-box" tabIndex={0}>
-        {cards.map((card, index) => (
+        {cards.map((card) => (
           <Card
             title={card.title}
             desc={card.desc}
             tags={card.tags}
-            key={index}
+            key={card.id}
             handleClick={card.handleClick}
           />
         ))}

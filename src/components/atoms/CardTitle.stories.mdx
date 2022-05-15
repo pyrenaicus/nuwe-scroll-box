@@ -27,6 +27,19 @@ import CardTitle from "./CardTitle";
 
 `title` should always be present when using `CardTitle`.
 
+The width of `CardTitle`component is limited so as to avoid extremely long titles that can break `Card`component. It's width is controlled via CSS, showing an ellipsis when text is longer than max.
+
+```css
+.card-title {
+  max-width: 20rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+}
+```
+
 export const Template = (args) => <CardTitle {...args} />;
 
 ### Preview

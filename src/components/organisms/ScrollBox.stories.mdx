@@ -8,9 +8,9 @@ import ScrollBox from "./ScrollBox";
     cards: {
       table: {
         type: {
-          summary: "CardType[]",
+          summary: "(CardType & { id: string })[]",
           detail:
-            "[{\n  title: string,\n  desc: string,\n  tags: [{title: string}, {title: string}, ...]\n}]",
+            "[{\n  id: string,\n  title: string,\n  desc: string,\n  tags: [{title: string}, {title: string}, ...]\n}]",
         },
       },
     },
@@ -23,25 +23,28 @@ import ScrollBox from "./ScrollBox";
 
 `ScrollBox` is used when creating a list of cards, each one representing a group of gifts. **This is the component you will use**.
 
-### Props passed to component
+### Required props
 
-1. `cards` an array containing gift cards, with shape:
+1. `scrollBoxTitle`, a string representing the title of a `ScrollBox` component.
+
+2. `loading` a boolean representing the loading state of component.
+
+3. `cards` an array of cards, its type being an intersection of `CardType` and `{ id: string }` as React requires a unique `key` prop when rendering a list of components. A card has this shape:
 
 ```javascript
 [{
+  id: string,
   title: string,
   desc: string,
   tags: [ { title: string}, { title: string}, ...],
   }]
 ```
 
-2. `loading` a boolean representing loading state of component.
-
-`ScrollBox`component can be in three different states:
+## `ScrollBox` component can be in three different states:
 
 export const Template = (args) => <ScrollBox {...args} />;
 
-## Default state
+### Default state
 
 This is the default state when gift cards exist.
 
@@ -53,6 +56,7 @@ This is the default state when gift cards exist.
       scrollBoxTitle: "My custom horizontal scroll box",
       cards: [
         {
+          id: "001",
           title: "Crew 🎉",
           desc: "Lista de regalos para el grupo crew 🎉",
           tags: [{ title: "Deportes de riesgo" }, { title: "Libros" }],
@@ -61,6 +65,7 @@ This is the default state when gift cards exist.
           },
         },
         {
+          id: "002",
           title: "Family 🎉",
           desc: "Lista de regalos para el grupo crew 🎉",
           tags: [{ title: "Family" }, { title: "Sport" }],
@@ -69,6 +74,7 @@ This is the default state when gift cards exist.
           },
         },
         {
+          id: "003",
           title: "Other 🎉",
           desc: "Lista de regalos para el grupo crew 🎉",
           tags: [{ title: "Experience" }, { title: "Libros" }],
@@ -77,6 +83,7 @@ This is the default state when gift cards exist.
           },
         },
         {
+          id: "004",
           title: "Crew 🎉",
           desc: "Lista de regalos para el grupo crew 🎉",
           tags: [{ title: "Deportes de riesgo" }, { title: "Libros" }],
@@ -85,6 +92,7 @@ This is the default state when gift cards exist.
           },
         },
         {
+          id: "005",
           title: "Family 🎉",
           desc: "Lista de regalos para el grupo crew 🎉",
           tags: [{ title: "Family" }, { title: "Sport" }],
@@ -99,11 +107,11 @@ This is the default state when gift cards exist.
   </Story>
 </Canvas>
 
-### Arguments of the component
+#### Arguments of the component
 
 <ArgsTable story="default" />
 
-## Loading state
+### Loading state
 
 Showing a skeleton while cards are loading from an external API.
 
@@ -120,7 +128,7 @@ Showing a skeleton while cards are loading from an external API.
   </Story>
 </Canvas>
 
-## Empty state
+### Empty state
 
 Showing when something went wrong and there are no gift cards.
 
@@ -129,6 +137,7 @@ Showing when something went wrong and there are no gift cards.
     name="empty"
     args={{
       loading: false,
+      scrollBoxTitle: "No gifts found!",
       cards: [],
     }}
   >

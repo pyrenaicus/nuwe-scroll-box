@@ -34,7 +34,28 @@ import TagPill from "./TagPill";
 
 `title` should always be present when using `TagPill`.
 
+The width of `TagPill`component is limited so as to avoid extremely long tags that can break `Card`component. It's width is controlled via CSS, showing an ellipsis when text is longer than max.
+
+```css
+.card-tag {
+  max-width: 8rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-transform: lowercase;
+  font-size: 0.86rem;
+  color: white;
+  background-color: var(--color-green-4);
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  margin: 0.2rem 0.2rem;
+  border-radius: 2rem;
+}
+```
+
 ### Background color
+
+Using colors from [Reasonable Colors](https://reasonable.work/colors/) color system.
 
 <ColorPalette>
   <ColorItem

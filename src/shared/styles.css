@@ -91,19 +91,42 @@ html,
 body {
   color: var(--gray);
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.4;
+  /* font-size: 16px; */
+  /* we let the root font size to browser defaults or user settings */
+  line-height: 1.5; /* line height will be 1.5*rem, for improved readability */
 }
 
 /*++++++++++++++++++++++++++++++++++++++++++*/
-/*               SINGLE CARD                */
+/*                  ATOMS                   */
 /*++++++++++++++++++++++++++++++++++++++++++*/
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
+
+/*               CARD TITLE                 */
+.card-title {
+  max-width: 20rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  font-size: 1.5rem;
 }
 
+/*            CARD DESCRIPTION              */
+.card-description {
+  max-width: 20rem;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/*             SINGLE TAG                   */
 .card-tag {
+  max-width: 8rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-transform: lowercase;
   font-size: 0.86rem;
   color: white;
   background-color: var(--color-green-4);
@@ -113,16 +136,18 @@ body {
   border-radius: 2rem;
 }
 
-.card-description {
-  text-align: left;
-  margin-bottom: 1rem;
+/*++++++++++++++++++++++++++++++++++++++++++*/
+/*                MOLECULES                 */
+/*++++++++++++++++++++++++++++++++++++++++++*/
+
+/*                TAG LIST                  */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
-.card-title {
-  text-transform: capitalize;
-  font-size: 1.5rem;
-}
-
+/*              SINGLE CARD                 */
 .card {
   display: flex;
   flex-direction: column;
@@ -136,8 +161,6 @@ body {
   max-width: 21rem;
   min-width: 327px;
   min-height: 150px;
-  /* height: 150px; */
-  /* margin-right: 1rem; */
 }
 
 .card:hover {
@@ -149,9 +172,23 @@ body {
   background-color: var(--color-violet-2);
 }
 
+/*  MEDIA QUERIES Breakpoint set to 800px   */
+
+@media (max-width: 800px) {
+  .card {
+    /* reset previous margins */
+    margin: 0;
+    min-width: 10rem;
+    max-width: 90vw;
+  }
+}
+
 /*++++++++++++++++++++++++++++++++++++++++++*/
-/*               SCROLL BOX                 */
+/*                ORGANISMS                 */
 /*++++++++++++++++++++++++++++++++++++++++++*/
+
+/*++++++++++++ SCROLL BOX ++++++++++++++++++*/
+
 .scroll-box-container {
   padding: 1rem;
 }
@@ -164,6 +201,7 @@ body {
   display: flex;
   overflow-x: auto;
   padding-bottom: 1rem;
+  align-items: stretch;
 }
 /* add a margin-left to each item in scroll-box except the first one */
 .scroll-box > * + * {
@@ -173,20 +211,13 @@ body {
 .scroll-box:empty {
   height: 200px;
 }
-/* Media Query Breakpoint set to 800px */
+
+/*  MEDIA QUERIES Breakpoint set to 800px   */
 
 @media (max-width: 800px) {
-  .card {
-    /* reset previous margins */
-    margin: 0;
-    min-width: 15rem;
-    /* margin-bottom: 1rem; */
-  }
-
   .scroll-box {
     padding: 0;
     flex-direction: column;
-    align-items: center;
   }
   /* add a margin-top to each item in scroll-box except the first one */
   .scroll-box > * + * {
@@ -197,9 +228,7 @@ body {
   }
 }
 
-/*++++++++++++++++++++++++++++++++++++++++++*/
-/*           LOADING SCROLL BOX             */
-/*++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++ SCROLL BOX: LOADING STATE +++++++++*/
 
 .is-loading {
   padding: 20px 30px;
@@ -242,9 +271,7 @@ body {
   }
 }
 
-/*++++++++++++++++++++++++++++++++++++++++++*/
-/*            EMPTY SCROLL BOX              */
-/*++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++ SCROLL BOX: EMPTY STATE +++++++++++*/
 
 .is-empty {
   display: flex;

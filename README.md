@@ -153,9 +153,15 @@ With the help of [Storybook's viewport addon](https://storybook.js.org/addons/@s
 - **loading** state that shows a skeleton while the app is loading data from some backend API
 - **empty** state in case something went wrong and there is no data to display.
 
+**Default state**
+
 ![default scroll box component](https://res.cloudinary.com/do6vrwdse/image/upload/v1652689008/scroll-box/scrollbox-default_p22riw.jpg)
 
+**Loading state**
+
 ![loading scroll box component](https://res.cloudinary.com/do6vrwdse/image/upload/v1652689008/scroll-box/scrollbox-loading_jusbkv.jpg)
+
+**Empty state**
 
 ![empty scroll box component](https://res.cloudinary.com/do6vrwdse/image/upload/v1652689007/scroll-box/scrollbox-empty_vbc3tf.jpg)
 

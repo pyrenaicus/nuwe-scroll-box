@@ -2,9 +2,31 @@
 
 # JOBarcelona'22 ⚛ Frontend Challenge
 
-This project is a response to the challenge JOBarcelona '22 online hackathon.
+This project is my response to the first challenge of JOBarcelona'22 hackathon, organized by [Nuwe](https://nuwe.io/challenge/jobarcelona-22-front-end).
 
-The main objective is to build a component library to show custom lists of gifts in a horizontal scroll component (vertical for mobile or tablet).
+The main objective is to build a component library to show a custom list of gift cards in a horizontal scroll component (vertical for mobile or tablet).
+
+In order to participate, a **pre-requisite** was to solve a problem, to decrypt a password protected PDF with further instructions. The main issue was to calculate the sum of all the digits of 2 raised to the power of the number of people working in a given project. I solved the preliminary task this way:
+
+```js
+// import to use with node
+const BigNumber = require("bignumber.js");
+const teams = [250, 200, 130, 170, 50];
+// total people
+const total = teams.reduce((a, b) => a + b);
+// use BigNumber
+let x = new BigNumber(2);
+x = x.exponentiatedBy(total);
+x = x.toFixed();
+const sumX = x
+  // no need of .toString() as BigNumbers are strings
+  .split("")
+  .map(Number)
+  .reduce((a, b) => a + b);
+console.log(sumX);
+```
+
+## The Challenge 💪
 
 **Tasks**:
 
@@ -147,7 +169,7 @@ With the help of [Storybook's viewport addon](https://storybook.js.org/addons/@s
 
 ![addon-viewport](https://res.cloudinary.com/do6vrwdse/image/upload/v1652687577/scroll-box/ScreenCap2_nn1a59.jpg)
 
-`ScrollBox`is the first of our components that displays three different [stories](https://storybook.js.org/docs/react/writing-stories/introduction) according to it's different state (Stories in Storybook are a way to capture the rendered state of a UI component):
+`ScrollBox` is the first of our components that displays three different [stories](https://storybook.js.org/docs/react/writing-stories/introduction) according to it's different state (Stories in Storybook are a way to capture the rendered state of a UI component):
 
 - **default** state
 - **loading** state that shows a skeleton while the app is loading data from some backend API

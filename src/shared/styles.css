@@ -122,7 +122,7 @@ body {
 
 /*             SINGLE TAG                   */
 .card-tag {
-  max-width: 10rem;
+  max-width: 9rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

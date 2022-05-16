@@ -230,4 +230,4 @@ When contributing to this repository, please first discuss the change you wish t
 
 ## License 📃
 
-MIT License
+[MIT License](https://github.com/pyrenaicus/nuwe-scroll-box/blob/main/LICENSE)

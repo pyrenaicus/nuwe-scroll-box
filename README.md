@@ -178,14 +178,13 @@ Stoybook has an addon helpul to test our component's compliance with web accessi
 ## Stack
 
 - TypeScript
+- CSS
 - React
 - Storybook
 
 ## Installation
 
-Clone this repo
-cd into newly created dir
-install dependencies
+Clone this repo, `cd` into newly created dir and install dependencies
 
 ```bash
 git clone
@@ -193,14 +192,20 @@ cd scroll-box
 yarn
 ```
 
-## Roadmap and visuals
-
 ## Contributing
 
-## Reconocimientos
+When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
-Gif Sad Xiao Long Bao Sticker from @Hellodorahardy
+1. Clone repo and create a new branch: $ git checkout https://github.com/pyrenaicus/nuwe-scroll-box -b name_for_new_branch.
+2. Make changes and test
+3. Submit Pull Request with comprehensive description of changes
 
-Colors from
+## Acknowledgements
+
+- [@Hellodorahardy](https://www.instagram.com/hellodorahardy/?hl=en) for Gif Sad Xiao Long Bao Sticker
+- [Storybook](https://storybook.js.org/tutorials/) for it's rich tutorials that were incredibly helpful
+- [Reasonable Colors](https://reasonable.work/colors/) for it's interesting color system
 
 ## License
+
+MIT License

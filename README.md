@@ -2,7 +2,7 @@
 
 # CUSTOM HORIZONTAL SCROLL BOX
 
-This project is a response to the chalenge JOBarcelona '22 online hackathon.
+This project is a response to the challenge JOBarcelona '22 online hackathon.
 
 The main objective is to build a component library to show custom lists of gifts in a horizontal scroll component (vertical for mobile or tablet).
 

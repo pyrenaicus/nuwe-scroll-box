@@ -1,14 +1,10 @@
-porque de las tecnologias utilizadas
-como se documenta el proyecto
-como se plantea la distribución de carpetas, la arquitectura
-como empezar a trabajar o contribuir en la repo
-Se recomienda utilizar el "common-readme", "standard-readme" o similiares
+![header](https://res.cloudinary.com/do6vrwdse/image/upload/v1652689652/scroll-box/storybook-header_fwhtal.jpg)
 
 # CUSTOM HORIZONTAL SCROLL BOX
 
 This project is a response to the chalenge JOBarcelona '22 online hackathon.
 
-The commission is to build a component library to show custom lists of gifts in a horizontal scroll component (vertical for mobile or tablet).
+The main objective is to build a component library to show custom lists of gifts in a horizontal scroll component (vertical for mobile or tablet).
 
 **Tasks**:
 
@@ -23,31 +19,31 @@ The commission is to build a component library to show custom lists of gifts in 
 - Use an atomic system
 - Comment all the development of the component
 
-We were given a password protected PDF with a screenshot of proposed design for the component and the need to use Storybook to document the component
+We were given a password protected PDF with a screenshot of proposed design for the component and the requirement to use [Storybook](https://storybook.js.org/) library to document the component
 
 ## Usage
 
-You can see a live deploy of the component library in _Chromatic_ here: **Link**
+You can see a **Storybook** with a live deploy of the component library in the following link: [scroll-box-nuwe.surge.sh](scroll-box-nuwe.surge.sh). Don't miss the **Docs** tab, where you will see all the components thoroughly documented.
 
 ## Component
 
-We will build our component following a [Component-Driven Development](https://www.componentdriven.org/) methodolgy and [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) principles.
+Component is built following a [Component-Driven Development](https://www.componentdriven.org/) methodolgy and [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) principles.
 
-In a nutshell, **Component-Driven Development** means that we'll build our UI components from the bottom up, starting with basic components and progressively combine them into complex ones, each one with a well-defined API and fixed series of states that are mocked.
+In a nutshell, **Component-Driven Development** means that we'll build our UI components from the bottom up, starting with basic components and progressively combine them into complex ones, each one with a well-defined API and a fixed series of states that are mocked.
 
 **Atomic design** is the process of creating design systems by breaking down the elements into five distinct levels: atoms, molecules, organisms, templates and pages:
 
-- **atoms** are the basic building blocks, the smallest components that can be incorporated, and cannot be broken down into subcomponents while still keeping them functional
+- **Atoms** are the basic building blocks, the smallest components that can be incorporated, and cannot be broken down into subcomponents while still keeping them functional
 
-- **molecules** are groups of atoms bonded together, and form a small group of elements that work together to provide some functionality.
+- **Molecules** are groups of atoms bonded together, and form a small group of elements that work together to provide some functionality.
 
-- **organisms** are groups of molecules and atoms joined together to form a relatively complex, distinct section of an interface.
+- **Organisms** are groups of molecules and atoms joined together to form a relatively complex, distinct section of an interface.
 
-- **templates** wrap organisms in a layout an provide the content structure of a page.
+- **Templates** wrap organisms in a layout an provide the content structure of a page.
 
-- **pages** are specific instances of templates with real-world content in place.
+- **Pages** are specific instances of templates with real-world content in place.
 
-For our project we will build up our component to the organism level.
+For our project we are only required to build our component up to the organism level.
 
 Using an atomic design approach will allow us to break our components down into smaller units that can be developed and tested in isolation.
 
@@ -74,7 +70,7 @@ Organizing our component's folder following atomic design principles can help us
 
 We will use [Storybook](https://storybook.js.org/) to develop our UI components in isolation. This will help us to rule out ambiguity in component state, as Storybook allows us to create explicit stories that document exactly how the component responds to given situations.
 
-In our `ScrollBox` component we create three different stories for its three different states. A _standard_ state, a _loading_ state that shows a skeleton while the app is loading data, and an _empty_ state in case something went wrong.
+In `ScrollBox`, our main component, we create three different stories for its three different states. A _standard_ state, a _loading_ state that shows a skeleton while the app is loading data, and an _empty_ state in case something went wrong.
 
 Overall our component is composed of other components, say atoms and molecules.
 
@@ -86,35 +82,98 @@ Overall our component is composed of other components, say atoms and molecules.
 
 `TagList` is our first **molecule**, a component that represents a list of tags in a pill shape. It's built on top of our `TagPill`component.
 
-`Card` is also a **molecule** albeit a complex one. Built on top of our previous atoms and molecule. It represents a card displaying all the information about one single pack of gifts, it has a title, produced by `CardTitle`, a description, `CardDescription` and a list of tags associated with it, a `TagList`molecule.
+`Card` is also a **molecule** albeit a complex one. Built on top of our previous `CardTitle` and `CardDescription` atoms, and our `TagList` molecule. It represents a card displaying all the information about one single pack of gifts, it has a title, produced by `CardTitle`, a description, `CardDescription` and a list of tags associated with it, a `TagList`molecule.
+
+![card component](https://res.cloudinary.com/do6vrwdse/image/upload/v1652689008/scroll-box/scrollbox-card_yxvrnh.jpg)
 
 It displays a minimal interactivity, changing background color on hover as well as changing the cursor to `pointer` giving a hint at being clicked. Right now the only action executed is a `console.log()` just to show it's operative.
 
-`Card` is the core component of our `ScrollBox`. It needs three props:
+`Card` is the core component of our `ScrollBox`. It needs four props:
 
 - `title` - a string describing the group of gifts
 - `desc` - a string representing a short description of the group
 - `tags`- an array of tags
+- `handleClick`- an action fired when card id clicked
+
+Besides the default `Card` story, there is as well a `Long text card` story, visually testing what will happen if we accidentally use an extremely long title or description.
+
+![awkward card component](https://res.cloudinary.com/do6vrwdse/image/upload/v1652689008/scroll-box/scrollbox-card-long_gmg7fu.jpg)
+
+Our `Card` component can handle this scenario limiting the length of text via CSS only.
+
+`CardTitle` is limiting text to one line only and width within bounds of `Card`.
+
+```css
+.card-title {
+  max-width: 20rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+}
+```
+
+`CardDescription` also limits width and height to 2 lines of text.
+
+```css
+.card-description {
+  max-width: 20rem;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+```
+
+And `TagList` is limiting the number of tags to 3 only by implementing `slice` array method on its `tags` array.
+
+```js
+const slicedTags = tags.length > 3 ? tags.slice(0, 3) : tags;
+```
 
 ### Organisms
 
-`ScrollBox`is our main component. It displays a list of cards in a responsive way, horizontal scroll in a PC, and vertical scroll in mobile / tablet.
+`ScrollBox` is our main component and objective of this exercise.
 
-`ScrollBox`is the first of our components that displays three different [stories](https://storybook.js.org/docs/react/writing-stories/introduction) according to it's different state (Stories in Storybook are a way to capture the rendered state of a UI component), a _standard_ state, a _loading_ state that shows a skeleton while the app is loading data from some backend API, and an _empty_ state in case something went wrong and there is no data to display.
+![default scroll box component](https://res.cloudinary.com/do6vrwdse/image/upload/v1652689008/scroll-box/scrollbox-default_p22riw.jpg)
 
-Our component accepts two props:
+It displays a list of cards in a responsive way, horizontal scroll in a large screen, and vertical scroll in mobile / tablet. Setting our breakpoint at 800px width.
 
-- `cards` - an array of cards
-- `loading`- a `bool` representing it's loading state
+![responsive scroll box component](https://res.cloudinary.com/do6vrwdse/image/upload/v1652689007/scroll-box/scrollbox-mobile_bkahdm.jpg)
+
+With the help of [Storybook's viewport addon](https://storybook.js.org/addons/@storybook/addon-viewport) we can easily test different devices.
+
+![addon-viewport](https://res.cloudinary.com/do6vrwdse/image/upload/v1652687577/scroll-box/ScreenCap2_nn1a59.jpg)
+
+`ScrollBox`is the first of our components that displays three different [stories](https://storybook.js.org/docs/react/writing-stories/introduction) according to it's different state (Stories in Storybook are a way to capture the rendered state of a UI component):
+
+- **default** state
+- **loading** state that shows a skeleton while the app is loading data from some backend API
+- **empty** state in case something went wrong and there is no data to display.
+
+![default scroll box component](https://res.cloudinary.com/do6vrwdse/image/upload/v1652689008/scroll-box/scrollbox-default_p22riw.jpg)
+
+![loading scroll box component](https://res.cloudinary.com/do6vrwdse/image/upload/v1652689008/scroll-box/scrollbox-loading_jusbkv.jpg)
+
+![empty scroll box component](https://res.cloudinary.com/do6vrwdse/image/upload/v1652689007/scroll-box/scrollbox-empty_vbc3tf.jpg)
+
+Our component requires three props:
+
+1. `scrollBoxTitle` - a string representing the title of a `ScrollBox` component
+2. `loading`- a boolean representing it's loading state
+3. `cards` - an array of cards, each one with a unique `id` string value, as [React requires a unique `key` prop when rendering a list of components](https://reactjs.org/docs/lists-and-keys.html#keys).
 
 ### Accesibility
 
-Stoybook has an addon helpul to test our component's compliance with web accessibility standards
+Stoybook has an addon helpul to test our component's compliance with web accessibility standards, [storybook-addon-a11y](https://storybook.js.org/addons/@storybook/addon-a11y/) it adds a tab to the Docs Addon (below the rendered component).
 
 ## Stack
 
+- TypeScript
 - React
-  -Storybook
+- Storybook
 
 ## Installation
 

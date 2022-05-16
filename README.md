@@ -23,7 +23,7 @@ We were given a password protected PDF with a screenshot of proposed design for 
 
 ## Usage
 
-You can see a **Storybook** with a live deploy of the component library in the following link: [scroll-box-nuwe.surge.sh](scroll-box-nuwe.surge.sh). Don't miss the **Docs** tab, where you will see all the components thoroughly documented.
+You can see a **Storybook** with a live deploy of the component library in the following link: [scroll-box-nuwe.surge.sh](https://scroll-box-nuwe.surge.sh). Don't miss the **Docs** tab, where you will see all the components thoroughly documented.
 
 ## Component
 

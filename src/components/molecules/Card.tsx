@@ -24,7 +24,7 @@ export default function Card(props: CardType) {
   const { title, desc, tags, handleClick } = props;
 
   return (
-    <div className="card" onClick={handleClick}>
+    <div className="card" onClick={handleClick} tabIndex={0}>
       <CardTitle title={title} />
       <CardDescription desc={desc} />
       <TagList tags={tags} />

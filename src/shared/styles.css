@@ -163,7 +163,8 @@ body {
   min-height: 150px;
 }
 
-.card:hover {
+.card:hover,
+.card:focus {
   background-color: var(--color-violet-2);
   cursor: pointer;
 }

@@ -197,6 +197,12 @@ Our component requires three props:
 
 Stoybook has an addon helpul to test our component's compliance with web accessibility standards, [storybook-addon-a11y](https://storybook.js.org/addons/@storybook/addon-a11y/) it adds a tab to the Docs Addon (below the rendered component).
 
+### Documenting with Storybook 📸
+
+Writing all the **stories** in MDX format allows us to use interactive code (JSX) inside of Markdown, each story canvas has a docs tab besides it where we can thoroughly document our components, adding its different state previews and arguments tables.
+
+Using [JSDoc](https://jsdoc.app/) comments in our code, get automatically picked up by Storybook, and added to our documentation, I used it specially to document all the types, the arguments of each component.
+
 ## Stack 🖌
 
 - TypeScript

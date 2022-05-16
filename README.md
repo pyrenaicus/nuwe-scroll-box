@@ -1,6 +1,6 @@
 ![header](https://res.cloudinary.com/do6vrwdse/image/upload/v1652689652/scroll-box/storybook-header_fwhtal.jpg)
 
-# CUSTOM HORIZONTAL SCROLL BOX
+# JOBarcelona'22 ⚛ Frontend Challenge
 
 This project is a response to the challenge JOBarcelona '22 online hackathon.
 

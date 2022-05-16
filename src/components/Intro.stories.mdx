@@ -55,10 +55,11 @@ It displays a minimal interactivity, changing background color on hover as well 
 
 `ScrollBox`is the first of our components that displays three different [stories](https://storybook.js.org/docs/react/writing-stories/introduction) according to it's different state (Stories in Storybook are a way to capture the rendered state of a UI component), a _standard_ state, a _loading_ state that shows a skeleton while the app is loading data from some backend API, and an _empty_ state in case something went wrong and there is no data to display.
 
-Our component accepts two props:
+Our component requires three props:
 
-- `cards` - an array of cards
-- `loading`- a `bool` representing it's loading state
+1. `scrollBoxTitle` - a string representing the title of a `ScrollBox` component
+2. `loading`- a boolean representing it's loading state
+3. `cards` - an array of cards, each one with a unique `id` string value, as [React requires a unique `key` prop when rendering a list of components](https://reactjs.org/docs/lists-and-keys.html#keys).
 
 [standard ScrollBox](/story/organisms-scrollbox--standard)
 

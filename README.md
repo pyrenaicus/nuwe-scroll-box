@@ -43,11 +43,11 @@ console.log(sumX);
 
 We were given a password protected PDF with a screenshot of proposed design for the component and the requirement to use [Storybook](https://storybook.js.org/) library to document the component
 
-## Usage
+## Usage 🍜
 
 You can see a **Storybook** with a live deploy of the component library in the following link: [scroll-box-nuwe.surge.sh](https://scroll-box-nuwe.surge.sh). Don't miss the **Docs** tab, where you will see all the components thoroughly documented.
 
-## Component
+## Main Component 🧬
 
 Component is built following a [Component-Driven Development](https://www.componentdriven.org/) methodolgy and [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) principles.
 
@@ -96,11 +96,11 @@ In `ScrollBox`, our main component, we create three different stories for its th
 
 Overall our component is composed of other components, say atoms and molecules.
 
-### Atoms
+### Atoms ⚛️
 
 `CardTitle`, `CardDescription` and `TagPill` are the **atoms**, the simplest building blocks from which we build up our component.
 
-### Molecules
+### Molecules 🧪
 
 `TagList` is our first **molecule**, a component that represents a list of tags in a pill shape. It's built on top of our `TagPill`component.
 
@@ -155,7 +155,7 @@ And `TagList` is limiting the number of tags to 3 only by implementing `slice` a
 const slicedTags = tags.length > 3 ? tags.slice(0, 3) : tags;
 ```
 
-### Organisms
+### Organisms 🐙
 
 `ScrollBox` is our main component and objective of this exercise.
 
@@ -193,18 +193,18 @@ Our component requires three props:
 2. `loading`- a boolean representing it's loading state
 3. `cards` - an array of cards, each one with a unique `id` string value, as [React requires a unique `key` prop when rendering a list of components](https://reactjs.org/docs/lists-and-keys.html#keys).
 
-### Accesibility
+### Accesibility 🎯
 
 Stoybook has an addon helpul to test our component's compliance with web accessibility standards, [storybook-addon-a11y](https://storybook.js.org/addons/@storybook/addon-a11y/) it adds a tab to the Docs Addon (below the rendered component).
 
-## Stack
+## Stack 🖌
 
 - TypeScript
 - CSS
 - React
 - Storybook
 
-## Installation
+## Installation ⚙️
 
 Clone this repo, `cd` into newly created dir and install dependencies
 
@@ -214,7 +214,7 @@ cd scroll-box
 yarn
 ```
 
-## Contributing
+## Contributing 💌
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
@@ -222,12 +222,12 @@ When contributing to this repository, please first discuss the change you wish t
 2. Make changes and test
 3. Submit Pull Request with comprehensive description of changes
 
-## Acknowledgements
+## Acknowledgements 🙏
 
 - [@Hellodorahardy](https://www.instagram.com/hellodorahardy/?hl=en) for Gif Sad Xiao Long Bao Sticker
 - [Storybook](https://storybook.js.org/tutorials/) for it's rich tutorials that were incredibly helpful
 - [Reasonable Colors](https://reasonable.work/colors/) for it's interesting color system
 
-## License
+## License 📃
 
 MIT License
